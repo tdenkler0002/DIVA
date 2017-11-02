@@ -21,8 +21,11 @@ class User(models.Model):
     mailState = models.TextField()
     mailZip = models.CharField(max_length=5)
     ssn = models.CharField(max_length=9)
-    driversLicense = models.CharField()
+    driversLicense = models.CharField(max_length=20)
     citizenshipDocType = models.TextField()
     politicalParty = models.TextField()
     voterStatus = models.TextField()
     absenteeApply = models.TextField()
+
+class Meta:
+    ordering = ('user_id',)
