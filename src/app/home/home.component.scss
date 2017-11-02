@@ -1,0 +1,98 @@
+.logo {
+  width: 100px;
+}
+
+q {
+  font-style: italic;
+  font-size: 1.2rem;
+  quotes: "« " " »";
+}
+
+.bkg-img {
+  background: url("../../assets/voting-hands.jpg") no-repeat center center;
+  margin-bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  overflow: hidden;
+  opacity: 0.15;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.jumbotron {
+  position: relative;
+  padding: 50px;
+}
+
+.jumbotron .container {
+  position: relative;
+  z-index: 2;
+}
+
+
+.title {
+  font-weight: 600;
+  margin-bottom: -12px;
+  font-family: 'Domine', serif;
+}
+
+h4 {
+  color: #35507a;
+}
+
+.btn-default {
+  background-color: #b75463;
+}
+
+#register {
+  color: #fff;
+}
+
+.register-btn {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  padding-right: 2.2em;
+  transition-duration: .1s;
+}
+
+.register-btn::before {
+  content: "\f054";
+  color: #fff;
+  position: absolute;
+  right: 1em;
+  padding: 0 1px;
+  font-family: FontAwesome;
+  transform: translateZ(0);
+  transition-duration: .1s;
+  transition-property: transform;
+  transition-timing-function: ease-out;
+}
+
+.register-btn:hover::before,
+.register-btn:focus::before,
+.register-btn:active::before {
+  transform: translateX(4px);
+}
+
+h2 {
+  font-family: 'Domine', serif;
+  color: #35507a;
+}
+
+p {
+  font-family: abel, sans-serif;
+  font-size: 18px;
+  margin: 10px;
+}
+
+.distSystems {
+  height: 200px;
+  width: 200px;
+  margin-left: 50px;
+}

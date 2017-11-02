@@ -1,0 +1,326 @@
+<div class="register-container">
+  <div class="instructions-container col-lg-4 pull-left">
+    <img class="register-icon" src="../../assets/signup-icon.png" alt="sign up for registration"/>
+    <span>
+      <h2>Voter Registration</h2>
+      <p>This form is required for registering to vote online through the DIVA service. Please fill out all fields.</p>
+
+      <h5>Public Information</h5>
+      <p>Your name, address, gender, and date of birth will be public information.</p>
+
+      <h5>Notice</h5>
+      <p>Knowingly providing false information about yourself or your qualifications is a class C felony punishable by imprisonment for up to 5 years, a fine up to $10,000, or both. </p>
+
+      <h5>Contact Information</h5>
+      <p>If you would like help with this form, contact the DIVA Team.</p>
+      <p>Web....</p>
+    </span>
+  </div>
+
+  <form class="form-container col-lg-8 pull-right">
+    <h5 class="divider">1. Name Information</h5>
+    <div class="names-container row">
+      <div class="form-group col-lg-4"> <!-- Full Name -->
+        <label for="first_name_id" class="control-label">First Name</label>
+        <input type="text" class="form-control" id="first_name_id" name="first_name" placeholder="Harry">
+      </div>
+
+      <div class="form-group col-lg-3"> <!-- Middle Name -->
+        <label for="middle_name_id" class="control-label">Middle Name</label>
+        <input type="text" class="form-control" id="middle_name_id" name="first_name" placeholder="James">
+      </div>
+
+      <div class="form-group col-lg-4"> <!-- Last Name -->
+        <label for="last_name_id" class="control-label">Last Name</label>
+        <input type="text" class="form-control" id="last_name_id" name="first_name" placeholder="Potter">
+      </div>
+
+      <div class="form-group col-lg-1"> <!-- Suffix Button -->
+        <label for="suffix_id" class="control-label">Suffix</label>
+        <select class="form-control" id="suffix_id">
+          <option value="JR">Jr.</option>
+          <option value="SR">Sr.</option>
+          <option value="2N">I</option>
+          <option value="2N">II</option>
+          <option value="3N">III</option>
+        </select>
+      </div>
+    </div>
+
+    <h5 class="divider">2. Additional Information</h5>
+    <div class="additonalInfo-container row">
+      <div class="form-group col-lg-5"> <!-- Telephone -->
+        <label for="telephone_id" class="control-label">Telephone #</label>
+        <input type="text" class="form-control" id="telephone_id" name="telephone" placeholder="555-555-5555">
+      </div>
+
+      <div class="form-group col-lg-2"> <!-- Gender Button -->
+        <label for="gender_id" class="control-label">Gender</label>
+        <select class="form-control" id="gender_id">
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+          <option value="NA">Prefer Not To Answer</option>
+        </select>
+      </div>
+
+      <div class="form-group col-lg-4"> <!-- DOB -->
+        <label for="DOB_id" class="control-label">Date of Birth</label>
+        <input type="text" class="form-control" id="DOB_id" name="DOB" placeholder="01/01/1990">
+      </div>
+    </div>
+
+    <h5 class="divider">3. Residential Information</h5>
+    <div class="form-group"> <!-- Residence Street 1 -->
+      <label for="resStreet1_id" class="control-label">Street Address 1</label>
+      <input type="text" class="form-control" id="resStreet1_id" name="resStreet1" placeholder="Residential Street address (not P.O. Box)">
+    </div>
+
+    <div class="form-group"> <!-- Residence Street 2 -->
+      <label for="resStreet2_id" class="control-label">Street Address 2</label>
+      <input type="text" class="form-control" id="resStreet2_id" name="resStreet2" placeholder="Apartment, suite, unit, building, floor, etc.">
+    </div>
+
+    <div class="res-state row">
+      <div class="form-group col-lg-4"> <!-- Residence City-->
+        <label for="resCity_id" class="control-label">City</label>
+        <input type="text" class="form-control" id="resCity_id" name="resCity" placeholder="Smallville">
+      </div>
+
+      <div class="form-group col-lg-3"> <!-- Res County-->
+        <label for="county_id" class="control-label">County</label>
+        <input type="text" class="form-control" id="county_id" name="county" placeholder="Lincoln">
+      </div>
+
+      <div class="form-group col-lg-3"> <!-- Residence State Button -->
+        <label for="resState_id" class="control-label">State</label>
+        <select class="form-control" id="resState_id">
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="DC">District Of Columbia</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+
+      <div class="form-group col-lg-2"> <!-- Res Zip Code-->
+        <label for="resZip_id" class="control-label">Zip Code</label>
+        <input type="text" class="form-control" id="resZip_id" name="resZip" placeholder="#####">
+      </div>
+    </div>
+
+    <h5 class="divider">4. Mailing Information</h5>
+    <div class="form-group"> <!-- Mailing Street 1 -->
+      <label for="mailStreet1_id" class="control-label">Street Address 1</label>
+      <input type="text" class="form-control" id="mailStreet1_id" name="mailStreet1" placeholder="Mailing Street address or P.O. Box">
+    </div>
+
+    <div class="form-group"> <!-- Mailing Street 2 -->
+      <label for="street2_id" class="control-label">Street Address 2</label>
+      <input type="text" class="form-control" id="street2_id" name="street2" placeholder="Apartment, suite, unit, building, floor, etc.">
+    </div>
+
+    <div class="mail-state row">
+      <div class="form-group col-lg-6"> <!-- Mailing City-->
+        <label for="mailCity_id" class="control-label">City</label>
+        <input type="text" class="form-control" id="mailCity_id" name="mailCity" placeholder="Gotham">
+      </div>
+
+      <div class="form-group col-lg-4"> <!-- Mailing State Button -->
+        <label for="mailState_id" class="control-label">State</label>
+        <select class="form-control" id="mailState_id">
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="DC">District Of Columbia</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+
+      <div class="form-group col-lg-2"> <!-- Mail Zip Code-->
+        <label for="mailZip_id" class="control-label">Zip Code</label>
+        <input type="text" class="form-control" id="mailZip_id" name="mailZip" placeholder="#####">
+      </div>
+    </div>
+
+    <h5 class="divider">5. Identification</h5>
+    <div class="identification row">
+      <div class="form-group col-lg-6"> <!-- SSN-->
+        <label for="SSN_id" class="control-label">Social Security #</label>
+        <input type="text" class="form-control" id="SSN_id" name="SSN" placeholder="12-345-6789">
+      </div>
+
+      <div class="form-group col-lg-6"> <!-- Driver Lic Num-->
+        <label for="driverL_id" class="control-label">Drivers License #</label>
+        <input type="text" class="form-control" id="driverL_id" name="driverL" placeholder="D12345678">
+      </div>
+    </div>
+
+    <div class="documentation row">
+      <div class="form-group col-lg-4"> <!-- Documentation Selection Button -->
+        <label for="docSelection_id" class="control-label">Citizenship Documentation Type</label>
+        <select class="form-control" id="docSelection_id">
+          <option value="PP">Passport</option>
+          <option value="BC">Birth Certificate</option>
+          <option value="NA">Naturalization Certificate</option>
+          <option value="CC">Certificate of Citizenship</option>
+        </select>
+      </div>
+
+
+      <div class="documentation-upload col-lg-8">
+        <label for="my-file-selector" class="control-label">Upload Documentation</label><br/>
+        <div class="input-group doc-upload">
+          <label class="input-group-btn">
+          <span class="btn btn-primary">
+              Browse&hellip; <input id="my-file-selector" class="browse" type="file" style="display:none;" onchange="$('#upload-file-info').val($(this).val());">
+          </span>
+          </label>
+          <input type="text" class="form-control" id="upload-file-info" readonly>
+        </div>
+      </div>
+    </div>
+
+
+    <h5 class="divider">6. Biometrics</h5>
+    <div class="biometrics row">
+      <p class="form-text">Due to the nature of Online Voting, biometrics is required as a second source of authentication. Your fingerprints will be stored in a encrypted and secure location. Please click the button to begin.</p>
+      <div class="form-group col-lg-7"> <!-- Biometrics Button -->
+        <label for="biometrics" class="control-label biometrics-label">Begin Biometrics Upload</label>
+        <button type="button" id="biometrics" class="btn btn-primary" (click)="open()">Begin Upload...
+        </button>
+      </div>
+    </div>
+
+    <h5 class="divider">7. Political Information</h5>
+    <div class="political row">
+      <div class="form-group col-lg-4"> <!-- Political Button -->
+        <label for="politicalAff_id" class="control-label">Political Party</label>
+        <select class="form-control" id="politicalAff_id">
+          <option value="DM">Democratic</option>
+          <option value="RP">Republican</option>
+          <option value="CS">Conservative</option>
+          <option value="GN">Green</option>
+          <option value="WF">Working Families</option>
+          <option value="IN">Independents</option>
+          <option value="WE">Women's Equality</option>
+          <option value="RE">Reform</option>
+          <option value="OT">Other</option>
+          <option value="NP">No Party</option>
+        </select>
+      </div>
+
+      <div class="form-group col-lg-2"> <!-- Voter Status Button -->
+        <label for="voterStatus_id" class="control-label">Voter Status</label>
+        <select class="form-control" id="voterStatus_id">
+          <option value="AC">Active</option>
+          <option value="IA">Inactive</option>
+        </select>
+      </div>
+
+      <div class="form-group col-lg-4"> <!-- Absentee Status Button -->
+        <label for="absenteeStatus_id" class="control-label">Apply for Absentee Ballot?</label>
+        <select class="form-control" id="absenteeStatus_id">
+          <option value="YS">Yes</option>
+          <option value="NO">No</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group"> <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">Submit Registration</button>
+    </div>
+
+  </form>
+</div>

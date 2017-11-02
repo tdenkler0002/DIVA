@@ -1,0 +1,17 @@
+{
+  "generator-ngx-rocket": {
+    "version": "2.2.1",
+    "props": {
+      "appName": "DIVA WebApp",
+      "target": [
+        "web"
+      ],
+      "pwa": false,
+      "ui": "bootstrap",
+      "auth": true,
+      "projectName": "diva-web-app",
+      "mobile": [],
+      "webview": []
+    }
+  }
+}
