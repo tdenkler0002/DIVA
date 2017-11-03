@@ -17,27 +17,31 @@
     </span>
   </div>
 
-  <form class="form-container col-lg-8 pull-right">
+  <form class="form-container col-lg-8 pull-right"
+  #userForm="ngForm" (ngSubmit)="onSubmit()">
     <h5 class="divider">1. Name Information</h5>
     <div class="names-container row">
       <div class="form-group col-lg-4"> <!-- Full Name -->
         <label for="first_name_id" class="control-label">First Name</label>
-        <input type="text" class="form-control" id="first_name_id" name="first_name" placeholder="Harry">
+        <input type="text" class="form-control" id="first_name_id" name="first_name"
+        placeholder="Harry" [(ngModel)]="user.firstName" required>
       </div>
 
       <div class="form-group col-lg-3"> <!-- Middle Name -->
         <label for="middle_name_id" class="control-label">Middle Name</label>
-        <input type="text" class="form-control" id="middle_name_id" name="first_name" placeholder="James">
+        <input type="text" class="form-control" id="middle_name_id" name="first_name"
+        placeholder="James"[(ngModel)]="user.middleName">
       </div>
 
       <div class="form-group col-lg-4"> <!-- Last Name -->
         <label for="last_name_id" class="control-label">Last Name</label>
-        <input type="text" class="form-control" id="last_name_id" name="first_name" placeholder="Potter">
+        <input type="text" class="form-control" id="last_name_id" name="first_name"
+        placeholder="Potter" [(ngModel)]="user.lastName" required>
       </div>
 
       <div class="form-group col-lg-1"> <!-- Suffix Button -->
         <label for="suffix_id" class="control-label">Suffix</label>
-        <select class="form-control" id="suffix_id">
+        <select class="form-control" id="suffix_id" name="suffix" [(ngModel)]="user.suffix">
           <option value="JR">Jr.</option>
           <option value="SR">Sr.</option>
           <option value="2N">I</option>
@@ -51,12 +55,13 @@
     <div class="additonalInfo-container row">
       <div class="form-group col-lg-5"> <!-- Telephone -->
         <label for="telephone_id" class="control-label">Telephone #</label>
-        <input type="text" class="form-control" id="telephone_id" name="telephone" placeholder="555-555-5555">
+        <input type="text" class="form-control" id="telephone_id" name="telephone"
+        placeholder="555-555-5555" [(ngModel)]="user.telephoneNum">
       </div>
 
       <div class="form-group col-lg-2"> <!-- Gender Button -->
         <label for="gender_id" class="control-label">Gender</label>
-        <select class="form-control" id="gender_id">
+        <select class="form-control" id="gender_id" name="gender" [(ngModel)]="user.gender">
           <option value="M">Male</option>
           <option value="F">Female</option>
           <option value="NA">Prefer Not To Answer</option>
@@ -65,35 +70,43 @@
 
       <div class="form-group col-lg-4"> <!-- DOB -->
         <label for="DOB_id" class="control-label">Date of Birth</label>
-        <input type="text" class="form-control" id="DOB_id" name="DOB" placeholder="01/01/1990">
+        <input type="text" class="form-control" id="DOB_id" name="DOB"
+        placeholder="01/01/1990" [(ngModel)]="user.dateOfBirth" required>
       </div>
     </div>
 
     <h5 class="divider">3. Residential Information</h5>
     <div class="form-group"> <!-- Residence Street 1 -->
       <label for="resStreet1_id" class="control-label">Street Address 1</label>
-      <input type="text" class="form-control" id="resStreet1_id" name="resStreet1" placeholder="Residential Street address (not P.O. Box)">
+      <input type="text" class="form-control" id="resStreet1_id" name="resStreet1"
+      placeholder="Residential Street address (not P.O. Box)"
+      [(ngModel)]="user.resStreetAddress1" required>
     </div>
 
     <div class="form-group"> <!-- Residence Street 2 -->
       <label for="resStreet2_id" class="control-label">Street Address 2</label>
-      <input type="text" class="form-control" id="resStreet2_id" name="resStreet2" placeholder="Apartment, suite, unit, building, floor, etc.">
+      <input type="text" class="form-control" id="resStreet2_id" name="resStreet2"
+      placeholder="Apartment, suite, unit, building, floor, etc."
+      [(ngModel)]="user.resStreetAddress2">
     </div>
 
     <div class="res-state row">
       <div class="form-group col-lg-4"> <!-- Residence City-->
         <label for="resCity_id" class="control-label">City</label>
-        <input type="text" class="form-control" id="resCity_id" name="resCity" placeholder="Smallville">
+        <input type="text" class="form-control" id="resCity_id" name="resCity"
+        placeholder="Smallville" [(ngModel)]="user.resCity" required>
       </div>
 
       <div class="form-group col-lg-3"> <!-- Res County-->
         <label for="county_id" class="control-label">County</label>
-        <input type="text" class="form-control" id="county_id" name="county" placeholder="Lincoln">
+        <input type="text" class="form-control" id="county_id" name="county"
+        placeholder="Lincoln" [(ngModel)]="user.resCounty">
       </div>
 
       <div class="form-group col-lg-3"> <!-- Residence State Button -->
         <label for="resState_id" class="control-label">State</label>
-        <select class="form-control" id="resState_id">
+        <select class="form-control" id="resState_id" name="resState" [(ngModel)]="user.resState">
+          <!-- TODO Add as an object and use ngFOR to create -->
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
           <option value="AZ">Arizona</option>
@@ -150,30 +163,35 @@
 
       <div class="form-group col-lg-2"> <!-- Res Zip Code-->
         <label for="resZip_id" class="control-label">Zip Code</label>
-        <input type="text" class="form-control" id="resZip_id" name="resZip" placeholder="#####">
+        <input type="text" class="form-control" id="resZip_id" name="resZip"
+        placeholder="#####" [(ngModel)]="user.resZip" required>
       </div>
     </div>
 
     <h5 class="divider">4. Mailing Information</h5>
     <div class="form-group"> <!-- Mailing Street 1 -->
       <label for="mailStreet1_id" class="control-label">Street Address 1</label>
-      <input type="text" class="form-control" id="mailStreet1_id" name="mailStreet1" placeholder="Mailing Street address or P.O. Box">
+      <input type="text" class="form-control" id="mailStreet1_id" name="mailStreet1"
+      placeholder="Mailing Street address or P.O. Box" [(ngModel)]="user.mailStreetAddress1" required>
     </div>
 
     <div class="form-group"> <!-- Mailing Street 2 -->
       <label for="street2_id" class="control-label">Street Address 2</label>
-      <input type="text" class="form-control" id="street2_id" name="street2" placeholder="Apartment, suite, unit, building, floor, etc.">
+      <input type="text" class="form-control" id="street2_id" name="street2"
+      placeholder="Apartment, suite, unit, building, floor, etc."
+      [(ngModel)]="user.mailStreetAddress2" required>
     </div>
 
     <div class="mail-state row">
       <div class="form-group col-lg-6"> <!-- Mailing City-->
         <label for="mailCity_id" class="control-label">City</label>
-        <input type="text" class="form-control" id="mailCity_id" name="mailCity" placeholder="Gotham">
+        <input type="text" class="form-control" id="mailCity_id" name="mailCity"
+        placeholder="Gotham" [(ngModel)]="user.mailCity" required>
       </div>
 
       <div class="form-group col-lg-4"> <!-- Mailing State Button -->
         <label for="mailState_id" class="control-label">State</label>
-        <select class="form-control" id="mailState_id">
+        <select class="form-control" id="mailState_id" name="mailState" [(ngModel)]="user.mailState" required>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
           <option value="AZ">Arizona</option>
@@ -230,7 +248,8 @@
 
       <div class="form-group col-lg-2"> <!-- Mail Zip Code-->
         <label for="mailZip_id" class="control-label">Zip Code</label>
-        <input type="text" class="form-control" id="mailZip_id" name="mailZip" placeholder="#####">
+        <input type="text" class="form-control" id="mailZip_id" name="mailZip"
+        placeholder="#####" [(ngModel)]="user.mailCity" required>
       </div>
     </div>
 
@@ -238,19 +257,22 @@
     <div class="identification row">
       <div class="form-group col-lg-6"> <!-- SSN-->
         <label for="SSN_id" class="control-label">Social Security #</label>
-        <input type="text" class="form-control" id="SSN_id" name="SSN" placeholder="12-345-6789">
+        <input type="text" class="form-control" id="SSN_id" name="SSN"
+        placeholder="12-345-6789" [(ngModel)]="user.SSN" required>
       </div>
 
       <div class="form-group col-lg-6"> <!-- Driver Lic Num-->
         <label for="driverL_id" class="control-label">Drivers License #</label>
-        <input type="text" class="form-control" id="driverL_id" name="driverL" placeholder="D12345678">
+        <input type="text" class="form-control" id="driverL_id" name="driverL" placeholder="D12345678"
+        [(ngModel)]="user.driversLicense">
       </div>
     </div>
 
     <div class="documentation row">
       <div class="form-group col-lg-4"> <!-- Documentation Selection Button -->
         <label for="docSelection_id" class="control-label">Citizenship Documentation Type</label>
-        <select class="form-control" id="docSelection_id">
+        <select class="form-control" id="docSelection_id" name="citizenshipDocType"
+        [(ngModel)]="user.citizenshipDocType" required>
           <option value="PP">Passport</option>
           <option value="BC">Birth Certificate</option>
           <option value="NA">Naturalization Certificate</option>
@@ -259,7 +281,7 @@
       </div>
 
 
-      <div class="documentation-upload col-lg-8">
+      <!-- <div class="documentation-upload col-lg-8">
         <label for="my-file-selector" class="control-label">Upload Documentation</label><br/>
         <div class="input-group doc-upload">
           <label class="input-group-btn">
@@ -269,7 +291,7 @@
           </label>
           <input type="text" class="form-control" id="upload-file-info" readonly>
         </div>
-      </div>
+      </div> -->
     </div>
 
 
@@ -287,7 +309,7 @@
     <div class="political row">
       <div class="form-group col-lg-4"> <!-- Political Button -->
         <label for="politicalAff_id" class="control-label">Political Party</label>
-        <select class="form-control" id="politicalAff_id">
+        <select class="form-control" id="politicalAff_id" name="politicalParty" [(ngModel)]="user.politicalParty">
           <option value="DM">Democratic</option>
           <option value="RP">Republican</option>
           <option value="CS">Conservative</option>
@@ -303,7 +325,7 @@
 
       <div class="form-group col-lg-2"> <!-- Voter Status Button -->
         <label for="voterStatus_id" class="control-label">Voter Status</label>
-        <select class="form-control" id="voterStatus_id">
+        <select class="form-control" id="voterStatus_id" name="voterStatus" [(ngModel)]="user.voterStatus">
           <option value="AC">Active</option>
           <option value="IA">Inactive</option>
         </select>
@@ -311,7 +333,7 @@
 
       <div class="form-group col-lg-4"> <!-- Absentee Status Button -->
         <label for="absenteeStatus_id" class="control-label">Apply for Absentee Ballot?</label>
-        <select class="form-control" id="absenteeStatus_id">
+        <select class="form-control" id="absenteeStatus_id" name="absenteeApply" [(ngModel)]="user.absenteeApply">
           <option value="YS">Yes</option>
           <option value="NO">No</option>
         </select>
