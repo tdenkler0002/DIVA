@@ -8,7 +8,7 @@ import {User} from '../user'
 export class UserServiceService {
 
   constructor( private http: Http) { }
-  userUrl = 'http://localhost:8000/users/';
+  userUrl = '/users/ ';
 
   addUser(user: User) {
     let headers = new Headers();
