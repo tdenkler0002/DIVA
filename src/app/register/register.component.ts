@@ -11,21 +11,22 @@ import {User} from '../user';
 })
 export class RegisterComponent implements OnInit {
 
+  user: User = new User();
+  submitted = false;
+
   constructor(
     private modalService: NgbModal,
     private userService: UserServiceService
   ) {}
-
-  user: User = new User();
-  submitted = false;
 
   open( ) {
     this.modalService.open(BiometricsComponent);
   }
 
   onSubmit() {
-    this.submitted = true; console.log(this.submitted)
-    this.addUser(this.user)
+    this.submitted = true;
+    console.log(this.submitted);
+    this.addUser(this.user);
   }
 
   addUser(user: User) {
