@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {BiometricsComponent} from '../biometrics/biometrics.component';
 import {UserServiceService} from '../services/user-service.service';
+import {FormsModule}   from '@angular/forms';
 import {User} from '../user';
 
 @Component({
@@ -19,19 +20,33 @@ export class RegisterComponent implements OnInit {
   user: User = new User();
   submitted = false;
 
+  // Opens the biometrics modal
   open( ) {
     this.modalService.open(BiometricsComponent);
   }
 
+  // Form submission button
   onSubmit() {
-    this.submitted = true; console.log(this.submitted)
+    this.submitted = true;
     this.addUser(this.user)
   }
 
+  // Calls the User Service to add a user through API
   addUser(user: User) {
     let res = this.userService.addUser(user).then(
       result => res = result);
   }
+
+  // Input field subscribes to keypress & only allows integers.
+ numbersOnly(event: any) {
+   const regEx = /[0-9\+\-\ ]/;
+   let inputChar = String.fromCharCode(event.charCode);
+
+   if (!regEx.test(inputChar)) {
+     // invalid character, prevent input
+     event.preventDefault();
+   }
+ }
 
   ngOnInit() {
   }

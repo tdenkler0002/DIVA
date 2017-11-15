@@ -23,20 +23,45 @@
     <div class="names-container row">
       <div class="form-group col-lg-4"> <!-- Full Name -->
         <label for="first_name_id" class="control-label">First Name</label>
-        <input type="text" class="form-control" id="first_name_id" name="first_name"
-        placeholder="Harry" [(ngModel)]="user.firstName" required>
-      </div>
+        <input type="text" class="form-control" id="first_name_id" #firstName="ngModel" name="first_name"
+        placeholder="Harry" [(ngModel)]="user.firstName" required minlength="2" maxlength="25">
+        <!-- Error Handling -->
+        <div *ngIf="firstName.errors && (firstName.dirty || firstName.touched)" class="alert alert-danger">
+         <div [hidden]="!firstName.errors.required">
+           First Name is required!
+         </div>
+         <div [hidden]="!firstName.errors.minlength">
+           First Name must be at least 2 characters long.
+         </div>
+         <div [hidden]="!firstName.errors.maxlength">
+           First Name cannot be more than 25 characters long.
+         </div>
+       </div>
+     </div>
+
 
       <div class="form-group col-lg-3"> <!-- Middle Name -->
         <label for="middle_name_id" class="control-label">Middle Name</label>
-        <input type="text" class="form-control" id="middle_name_id" name="first_name"
+        <input type="text" class="form-control" id="middle_name_id" name="middle_name"
         placeholder="James"[(ngModel)]="user.middleName">
       </div>
 
       <div class="form-group col-lg-4"> <!-- Last Name -->
         <label for="last_name_id" class="control-label">Last Name</label>
-        <input type="text" class="form-control" id="last_name_id" name="first_name"
-        placeholder="Potter" [(ngModel)]="user.lastName" required>
+        <input type="text" class="form-control" id="last_name_id" #lastName="ngModel" name="last_name"
+        placeholder="Potter" [(ngModel)]="user.lastName" required minlength="2" maxlength="25">
+        <!-- Error Handling -->
+        <div *ngIf="lastName.errors && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+         <div [hidden]="!lastName.errors.required">
+           Last Name is required!
+         </div>
+         <div [hidden]="!lastName.errors.minlength">
+           Last Name must be at least 2 characters long.
+         </div>
+         <div [hidden]="!lastName.errors.maxlength">
+           Last Name cannot be more than 25 characters long.
+         </div>
+       </div>
       </div>
 
       <div class="form-group col-lg-1"> <!-- Suffix Button -->
@@ -55,32 +80,66 @@
     <div class="additonalInfo-container row">
       <div class="form-group col-lg-5"> <!-- Telephone -->
         <label for="telephone_id" class="control-label">Telephone #</label>
-        <input type="text" class="form-control" id="telephone_id" name="telephone"
-        placeholder="555-555-5555" [(ngModel)]="user.telephoneNum">
+        <input type="text" class="form-control" id="telephone_id" #telephone="ngModel" name="telephone"
+        placeholder="5551234009" [(ngModel)]="user.telephoneNum" (keypress)="numbersOnly($event)"
+        required minlength="10" maxlength="10">
+        <!-- Error Handling -->
+        <div *ngIf="telephone.errors && (telephone.dirty || telephone.touched)" class="alert alert-danger">
+         <div [hidden]="!telephone.errors.required">
+           Phone Number is required!
+         </div>
+         <div [hidden]="!telephone.errors.minlength">
+          Phone Number must be 10 characters long.
+         </div>
+       </div>
       </div>
 
       <div class="form-group col-lg-2"> <!-- Gender Button -->
         <label for="gender_id" class="control-label">Gender</label>
-        <select class="form-control" id="gender_id" name="gender" [(ngModel)]="user.gender">
+        <select class="form-control" id="gender_id" #gender="ngModel"
+        name="gender" [(ngModel)]="user.gender" required>
           <option value="M">Male</option>
           <option value="F">Female</option>
           <option value="NA">Prefer Not To Answer</option>
         </select>
+        <!-- Error Handling -->
+        <div *ngIf="gender.errors && (gender.dirty || gender.touched)" class="alert alert-danger">
+         <div [hidden]="!gender.errors.required">
+           Gender is required!
+         </div>
+       </div>
       </div>
 
       <div class="form-group col-lg-4"> <!-- DOB -->
         <label for="DOB_id" class="control-label">Date of Birth</label>
-        <input type="text" class="form-control" id="DOB_id" name="DOB"
-        placeholder="01/01/1990" [(ngModel)]="user.dateOfBirth" required>
+        <input type="text" class="form-control" id="DOB_id" name="DOB" #dob="ngModel"
+        (keypress)="numbersOnly($event)" placeholder="01011990" [(ngModel)]="user.dateOfBirth"
+        required minlength="8" maxlength="8">
+
+      <!-- Error Handling -->
+      <div *ngIf="dob.errors && (dob.dirty || dob.touched)" class="alert alert-danger">
+       <div [hidden]="!dob.errors.required">
+         DOB is required!
+       </div>
+       <div [hidden]="!dob.errors.minlength">
+         DOB must be 8 characters long.
+       </div>
       </div>
+     </div>
     </div>
 
     <h5 class="divider">3. Residential Information</h5>
     <div class="form-group"> <!-- Residence Street 1 -->
       <label for="resStreet1_id" class="control-label">Street Address 1</label>
-      <input type="text" class="form-control" id="resStreet1_id" name="resStreet1"
+      <input type="text" class="form-control" id="resStreet1_id" #resStreet1="ngModel" name="resStreet1"
       placeholder="Residential Street address (not P.O. Box)"
       [(ngModel)]="user.resStreetAddress1" required>
+      <!-- Error Handling -->
+      <div *ngIf="resStreet1.errors && (resStreet1.dirty || resStreet1.touched)" class="alert alert-danger">
+       <div [hidden]="!resStreet1.errors.required">
+         Residential Street Address is required!
+       </div>
+     </div>
     </div>
 
     <div class="form-group"> <!-- Residence Street 2 -->
@@ -93,19 +152,32 @@
     <div class="res-state row">
       <div class="form-group col-lg-4"> <!-- Residence City-->
         <label for="resCity_id" class="control-label">City</label>
-        <input type="text" class="form-control" id="resCity_id" name="resCity"
+        <input type="text" class="form-control" id="resCity_id" #resCity="ngModel" name="resCity"
         placeholder="Smallville" [(ngModel)]="user.resCity" required>
+        <!--Error Handling -->
+        <div *ngIf="resCity.errors && (resCity.dirty || resCity.touched)" class="alert alert-danger">
+         <div [hidden]="!resCity.errors.required">
+           City is required!
+         </div>
+       </div>
       </div>
 
       <div class="form-group col-lg-3"> <!-- Res County-->
         <label for="county_id" class="control-label">County</label>
-        <input type="text" class="form-control" id="county_id" name="county"
-        placeholder="Lincoln" [(ngModel)]="user.resCounty">
+        <input type="text" class="form-control" id="county_id" #resCounty="ngModel" name="county"
+        placeholder="Lincoln" [(ngModel)]="user.resCounty" required>
+        <!--Error Handling -->
+        <div *ngIf="resCounty.errors && (resCounty.dirty || resCounty.touched)" class="alert alert-danger">
+         <div [hidden]="!resCounty.errors.required">
+           County is required!
+         </div>
+       </div>
       </div>
 
       <div class="form-group col-lg-3"> <!-- Residence State Button -->
         <label for="resState_id" class="control-label">State</label>
-        <select class="form-control" id="resState_id" name="resState" [(ngModel)]="user.resState">
+        <select class="form-control" id="resState_id" name="resState" #resState="ngModel"
+         [(ngModel)]="user.resState" required>
           <!-- TODO Add as an object and use ngFOR to create -->
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
@@ -159,27 +231,49 @@
           <option value="WI">Wisconsin</option>
           <option value="WY">Wyoming</option>
         </select>
+        <!--Error Handling -->
+        <div *ngIf="resState.errors && (resState.dirty || resState.touched)" class="alert alert-danger">
+         <div [hidden]="!resState.errors.required">
+           State is required!
+         </div>
+       </div>
       </div>
 
       <div class="form-group col-lg-2"> <!-- Res Zip Code-->
         <label for="resZip_id" class="control-label">Zip Code</label>
-        <input type="text" class="form-control" id="resZip_id" name="resZip"
-        placeholder="#####" [(ngModel)]="user.resZip" required>
+        <input type="text" class="form-control" id="resZip_id" #resZip="ngModel" name="resZip"
+        placeholder="#####" [(ngModel)]="user.resZip" required minlength="5" maxlength="5"
+        (keypress)="numbersOnly($event)">
+      </div>
+      <!-- Error Handling -->
+      <div *ngIf="resZip.errors && (resZip.dirty || resZip.touched)" class="alert alert-danger">
+       <div [hidden]="!resZip.errors.required">
+         Zip code is required!
+       </div>
+       <div [hidden]="!resZip.errors.minlength">
+         Zip code must be 5 characters long.
+       </div>
       </div>
     </div>
 
     <h5 class="divider">4. Mailing Information</h5>
     <div class="form-group"> <!-- Mailing Street 1 -->
       <label for="mailStreet1_id" class="control-label">Street Address 1</label>
-      <input type="text" class="form-control" id="mailStreet1_id" name="mailStreet1"
+      <input type="text" class="form-control" id="mailStreet1_id" #mailStreet="ngModel" name="mailStreet1"
       placeholder="Mailing Street address or P.O. Box" [(ngModel)]="user.mailStreetAddress1" required>
+      <!-- Error Handling -->
+      <div *ngIf="mailStreet.errors && (mailStreet.dirty || mailStreet.touched)" class="alert alert-danger">
+       <div [hidden]="!mailStreet.errors.required">
+         Mailing Street Address is required!
+       </div>
+     </div>
     </div>
 
     <div class="form-group"> <!-- Mailing Street 2 -->
       <label for="street2_id" class="control-label">Street Address 2</label>
       <input type="text" class="form-control" id="street2_id" name="street2"
       placeholder="Apartment, suite, unit, building, floor, etc."
-      [(ngModel)]="user.mailStreetAddress2" required>
+      [(ngModel)]="user.mailStreetAddress2">
     </div>
 
     <div class="mail-state row">
@@ -191,7 +285,8 @@
 
       <div class="form-group col-lg-4"> <!-- Mailing State Button -->
         <label for="mailState_id" class="control-label">State</label>
-        <select class="form-control" id="mailState_id" name="mailState" [(ngModel)]="user.mailState" required>
+        <select class="form-control" id="mailState_id" name="mailState" #mailState="ngModel"
+        [(ngModel)]="user.mailState" required>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
           <option value="AZ">Arizona</option>
@@ -244,12 +339,27 @@
           <option value="WI">Wisconsin</option>
           <option value="WY">Wyoming</option>
         </select>
+        <!--Error Handling -->
+        <div *ngIf="mailState.errors && (mailState.dirty || mailState.touched)" class="alert alert-danger">
+         <div [hidden]="!mailState.errors.required">
+           State is required!
+         </div>
+       </div>
       </div>
 
       <div class="form-group col-lg-2"> <!-- Mail Zip Code-->
         <label for="mailZip_id" class="control-label">Zip Code</label>
-        <input type="text" class="form-control" id="mailZip_id" name="mailZip"
-        placeholder="#####" [(ngModel)]="user.mailZip" required>
+        <input type="text" class="form-control" id="mailZip_id" #mailZip="ngModel" name="mailZip"
+        placeholder="#####" [(ngModel)]="user.mailZip" (keypress)="numbersOnly($event)" required>
+      </div>
+      <!-- Error Validation -->
+      <div *ngIf="mailZip.errors && (mailZip.dirty || mailZip.touched)" class="alert alert-danger">
+       <div [hidden]="!mailZip.errors.required">
+         Zip code is required!
+       </div>
+       <div [hidden]="!mailZip.errors.minlength">
+         Zip code must be 5 characters long.
+       </div>
       </div>
     </div>
 
@@ -257,8 +367,18 @@
     <div class="identification row">
       <div class="form-group col-lg-6"> <!-- SSN-->
         <label for="SSN_id" class="control-label">Social Security #</label>
-        <input type="text" class="form-control" id="SSN_id" name="SSN"
-        placeholder="12-345-6789" [(ngModel)]="user.ssn" required>
+        <input type="text" class="form-control" id="SSN_id" #ssn="ngModel" name="SSN"
+        placeholder="123456789" [(ngModel)]="user.ssn" (keypress)="numbersOnly($event)"
+        required minlength="9" maxlength="9">
+        <!-- Error Validation -->
+        <div *ngIf="ssn.errors && (ssn.dirty || ssn.touched)" class="alert alert-danger">
+         <div [hidden]="!ssn.errors.required">
+           SSN is required!
+         </div>
+         <div [hidden]="!ssn.errors.minlength">
+           SSN must be 9 characters long.
+         </div>
+        </div>
       </div>
 
       <div class="form-group col-lg-6"> <!-- Driver Lic Num-->
@@ -281,7 +401,7 @@
       </div>
 
 
-      <!-- <div class="documentation-upload col-lg-8">
+      <div class="documentation-upload col-lg-8">
         <label for="my-file-selector" class="control-label">Upload Documentation</label><br/>
         <div class="input-group doc-upload">
           <label class="input-group-btn">
@@ -291,7 +411,7 @@
           </label>
           <input type="text" class="form-control" id="upload-file-info" readonly>
         </div>
-      </div> -->
+      </div>
     </div>
 
 
@@ -309,7 +429,7 @@
     <div class="political row">
       <div class="form-group col-lg-4"> <!-- Political Button -->
         <label for="politicalAff_id" class="control-label">Political Party</label>
-        <select class="form-control" id="politicalAff_id" name="politicalParty" [(ngModel)]="user.politicalParty">
+        <select class="form-control" id="politicalAff_id" name="politicalParty" #politicalParty="ngModel" [(ngModel)]="user.politicalParty" required>
           <option value="DM">Democratic</option>
           <option value="RP">Republican</option>
           <option value="CS">Conservative</option>
@@ -321,22 +441,41 @@
           <option value="OT">Other</option>
           <option value="NP">No Party</option>
         </select>
+        <!--Error Handling -->
+        <div *ngIf="politicalParty.errors && (politicalParty.dirty || politicalParty.touched)" class="alert alert-danger">
+         <div [hidden]="!politicalParty.errors.required">
+           Political Party is required!
+         </div>
+       </div>
       </div>
 
       <div class="form-group col-lg-2"> <!-- Voter Status Button -->
         <label for="voterStatus_id" class="control-label">Voter Status</label>
-        <select class="form-control" id="voterStatus_id" name="voterStatus" [(ngModel)]="user.voterStatus">
+        <select class="form-control" id="voterStatus_id" name="voterStatus" #voterStatus="ngModel"
+         [(ngModel)]="user.voterStatus" required>
           <option value="AC">Active</option>
           <option value="IA">Inactive</option>
         </select>
+        <!--Error Handling -->
+        <div *ngIf="voterStatus.errors && (voterStatus.dirty || voterStatus.touched)" class="alert alert-danger">
+         <div [hidden]="!voterStatus.errors.required">
+           Voter Status is required!
+         </div>
+       </div>
       </div>
 
       <div class="form-group col-lg-4"> <!-- Absentee Status Button -->
         <label for="absenteeStatus_id" class="control-label">Apply for Absentee Ballot?</label>
-        <select class="form-control" id="absenteeStatus_id" name="absenteeApply" [(ngModel)]="user.absenteeApply">
+        <select class="form-control" id="absenteeStatus_id" name="absenteeApply" #absentee="ngModel" [(ngModel)]="user.absenteeApply" required>
           <option value="YS">Yes</option>
           <option value="NO">No</option>
         </select>
+        <!--Error Handling -->
+        <div *ngIf="absentee.errors && (absentee.dirty || absentee.touched)" class="alert alert-danger">
+         <div [hidden]="!absentee.errors.required">
+           Absentee Status is required!
+         </div>
+       </div>
       </div>
     </div>
 

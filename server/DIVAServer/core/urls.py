@@ -3,8 +3,8 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from .views import CreateView, DetailsView
 
 urlpatterns = [
-    url(r'^users/$', CreateView.as_view(), name="create"),
-    url(r'^users/(?P<pk>[0-9]+)/$',
+    url(r'^api/users/$', CreateView.as_view(), name="create"),
+    url(r'^api/users/(?P<pk>[0-9]+)/$',
         DetailsView.as_view(), name='details'),
 ]
 
