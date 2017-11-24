@@ -20,6 +20,7 @@ export class User {
   ssn: string;
   driversLicense: string;
   citizenshipDocType: string;
+  citizenshipDocument: any;
   politicalParty: string;
   voterStatus: string;
   absenteeApply: string;

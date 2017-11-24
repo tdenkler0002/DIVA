@@ -14,7 +14,8 @@ import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
 import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
-import {BiometricsModule} from './biometrics/biometrics.module';
+import { BiometricsModule } from './biometrics/biometrics.module';
+import { FileUploadModule } from './file-upload/file-upload.module';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import {BiometricsModule} from './biometrics/biometrics.module';
     RegisterModule,
     LoginModule,
     BiometricsModule,
+    FileUploadModule,
     AppRoutingModule
   ],
   declarations: [AppComponent],

@@ -402,14 +402,15 @@
 
 
       <div class="documentation-upload col-lg-8">
-        <label for="my-file-selector" class="control-label">Upload Documentation</label><br/>
+        <label for="citizenshipDocument" class="control-label">Upload Documentation</label><br/>
         <div class="input-group doc-upload">
-          <label class="input-group-btn">
-          <span class="btn btn-primary">
-              Browse&hellip; <input id="my-file-selector" class="browse" type="file" style="display:none;" onchange="$('#upload-file-info').val($(this).val());">
-          </span>
-          </label>
-          <input type="text" class="form-control" id="upload-file-info" readonly>
+          <!-- <span class="btn btn-primary">
+              Browse&hellip; <input id="my-file-selector" class="browse" type="file" style="display:none;" onchange="handleDocSubmit($event)">
+          </span> -->
+          <file-upload [showFileNameInput]="true" allowedTypes="image/*"
+                      uploadButtonText="Upload File" [(ngModel)]="base64String"
+                      name="citizenshipDocument" ngDefaultControl>
+          </file-upload>
         </div>
       </div>
     </div>

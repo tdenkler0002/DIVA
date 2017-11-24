@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {BiometricsComponent} from '../biometrics/biometrics.component';
 import {UserServiceService} from '../services/user-service.service';
+import {FileUploadComponent} from '../file-upload/file-upload.component';
 import {FormsModule}   from '@angular/forms';
 import {User} from '../user';
 
@@ -28,7 +29,7 @@ export class RegisterComponent implements OnInit {
   // Form submission button
   onSubmit() {
     this.submitted = true;
-    this.addUser(this.user)
+    this.addUser(this.user);
   }
 
   // Calls the User Service to add a user through API
