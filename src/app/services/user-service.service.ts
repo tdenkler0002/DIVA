@@ -9,10 +9,11 @@ export class UserServiceService {
 
   constructor( private http: Http) { }
   userUrl = '/users/ ';
-  citizenshipDocument: any;
-  biometricsDocument: any;
+  citizenshipDocument: any = "None";
+  biometricsDocument: any = "None";
   docType: string;
 
+  // Holds the documentation variables for manual append to User Model
   addUserDoc(userDoc, docType) {
     if(docType=="Citizenship") {
       this.citizenshipDocument = userDoc;
@@ -23,6 +24,7 @@ export class UserServiceService {
   }
 
   addUser(user: User) {
+    // Manually adds to the User model for POST
     user.citizenshipDocument = this.citizenshipDocument;
     user.biometricsDocument = this.biometricsDocument;
 
