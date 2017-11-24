@@ -26,7 +26,7 @@ class User(models.Model):
     ssn = models.CharField(max_length=9)
     driversLicense = models.CharField(max_length=20, blank=True)
     citizenshipDocType = models.TextField()
-    citizenshipDocument = models.TextField()
+    citizenshipDocument = models.CharField(max_length=15000)
     politicalParty = models.TextField()
     voterStatus = models.TextField()
     absenteeApply = models.TextField()
@@ -41,10 +41,6 @@ class User(models.Model):
     def save(self, *args, **kwargs):
         self.voter_id = self.get_voter_id
         super(User, self).save(*args, **kwargs)
-
-# class UserDocs(models.Model):
-#     voter = models.ForeignKey(User)
-#     citizenshipDocument = models.CharField(max_length=9)
 
 class Meta:
     ordering = ('user_id',)

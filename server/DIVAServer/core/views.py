@@ -10,9 +10,6 @@ class CreateView(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-    def create(self, request, *args, **kwargs):
-        data = request.data.get("items")
-
     def perform_create(self, serializer):
         """ Save the post data w/creating a new user """
         serializer.save()
