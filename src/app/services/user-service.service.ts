@@ -9,8 +9,23 @@ export class UserServiceService {
 
   constructor( private http: Http) { }
   userUrl = '/users/ ';
+  citizenshipDocument: any;
+  biometricsDocument: any;
+  docType: string;
+
+  addUserDoc(userDoc, docType) {
+    if(docType=="Citizenship") {
+      this.citizenshipDocument = userDoc;
+    }
+    if(docType=="Biometrics") {
+      this.biometricsDocument = userDoc;
+    }
+  }
 
   addUser(user: User) {
+    user.citizenshipDocument = this.citizenshipDocument;
+    user.biometricsDocument = this.biometricsDocument;
+
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('X-CSRFToken', this.getCookie('csrftoken'));

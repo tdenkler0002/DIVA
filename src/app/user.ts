@@ -21,6 +21,7 @@ export class User {
   driversLicense: string;
   citizenshipDocType: string;
   citizenshipDocument: any;
+  biometricsDocument: any;
   politicalParty: string;
   voterStatus: string;
   absenteeApply: string;

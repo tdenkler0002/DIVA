@@ -7,7 +7,6 @@ import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
 import { FileUploadModule} from '../file-upload/file-upload.module';
 import { UserServiceService } from '../services/user-service.service';
-import { FileUploadComponent } from '../file-upload/file-upload.component';
 
 @NgModule({
   imports: [
@@ -19,7 +18,6 @@ import { FileUploadComponent } from '../file-upload/file-upload.component';
   ],
   declarations: [
     RegisterComponent,
-    FileUploadComponent
   ],
   providers: [
     UserServiceService

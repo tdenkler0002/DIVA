@@ -409,7 +409,7 @@
           </span> -->
           <file-upload [showFileNameInput]="true" allowedTypes="image/*"
                       uploadButtonText="Upload File" [(ngModel)]="base64String"
-                      name="citizenshipDocument" ngDefaultControl>
+                      name="citizenshipDocument" id="citizenshipDocument" ngDefaultControl>
           </file-upload>
         </div>
       </div>
@@ -421,7 +421,7 @@
       <p class="form-text">Due to the nature of Online Voting, biometrics is required as a second source of authentication. Your fingerprints will be stored in a encrypted and secure location. Please click the button to begin.</p>
       <div class="form-group col-lg-7"> <!-- Biometrics Button -->
         <label for="biometrics" class="control-label biometrics-label">Begin Biometrics Upload</label>
-        <button type="button" id="biometrics" class="btn btn-primary" (click)="open()">Begin Upload...
+        <button type="button" id="biometricsDocument" class="btn btn-primary" (click)="open()">Begin Upload...
         </button>
       </div>
     </div>

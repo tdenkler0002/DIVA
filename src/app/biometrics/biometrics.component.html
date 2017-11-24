@@ -1,11 +1,21 @@
 <div class="modal-header">
-  <h4 class="modal-title">Hi there!</h4>
+  <h4 class="modal-title">Biometrics Identification</h4>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="modal-body">
-  <p>Hello!</p>
+  <p>This documentation will be utilized only to match your identity for voting purposes. It is stored on a private and encrypted server and will never
+    be used for purposes other then voting identification.</p>
+  <p>
+    Please upload the fingerprint scan below:
+  </p>
+
+  <file-upload [showFileNameInput]="true" allowedTypes="image/*"
+              uploadButtonText="Upload File" [(ngModel)]="base64String"
+              name="biometricsDocument" ngDefaultControl>
+  </file-upload>
+
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>

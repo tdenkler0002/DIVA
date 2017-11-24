@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, Input} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {BiometricsComponent} from '../biometrics/biometrics.component';
 import {UserServiceService} from '../services/user-service.service';
