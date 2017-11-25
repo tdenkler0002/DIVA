@@ -16,6 +16,7 @@ import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
 import { BiometricsModule } from './biometrics/biometrics.module';
 import { FileUploadModule } from './file-upload/file-upload.module';
+import { SuccessPageModule } from './success-page/success-page.module';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { FileUploadModule } from './file-upload/file-upload.module';
     LoginModule,
     BiometricsModule,
     FileUploadModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SuccessPageModule
   ],
   declarations: [AppComponent],
   providers: [

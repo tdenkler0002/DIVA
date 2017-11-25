@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild, Input} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {Router} from '@angular/router';
 import {BiometricsComponent} from '../biometrics/biometrics.component';
 import {UserServiceService} from '../services/user-service.service';
 import {FileUploadComponent} from '../file-upload/file-upload.component';
@@ -15,9 +16,9 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private userService: UserServiceService
+    private userService: UserServiceService,
+    private router: Router
   ) {}
-
   user: User = new User();
   submitted = false;
 
@@ -34,8 +35,9 @@ export class RegisterComponent implements OnInit {
 
   // Calls the User Service to add a user through API
   addUser(user: User) {
-    let res = this.userService.addUser(user).then(
-      result => res = result);
+    let res = this.userService.addUser(user)
+    .then(result => res = result);
+    this.router.navigate(['./success']);
   }
 
   // Input field subscribes to keypress & only allows integers.

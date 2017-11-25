@@ -3,11 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { Route } from '../core/route.service';
 import { extract } from '../core/i18n.service';
-import { RegisterComponent } from './register.component';
-import { SuccessPageComponent } from '../success-page/success-page.component';
+import { SuccessPageComponent } from './success-page.component';
 
 const routes: Routes = Route.withShell([
-  { path: 'register', component: RegisterComponent, data: { title: extract('Register') } },
   { path: 'success', component: SuccessPageComponent, data: { title: extract('Success') } }
 ]);
 
@@ -16,4 +14,4 @@ const routes: Routes = Route.withShell([
   exports: [RouterModule],
   providers: []
 })
-export class RegisterRoutingModule { }
+export class SuccessPageRoutingModule { }

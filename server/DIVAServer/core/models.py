@@ -7,7 +7,7 @@ class User(models.Model):
     voter_id = models.TextField(primary_key=True, default='Not Generated')
     firstName = models.CharField(max_length=25, blank=False)
     middleName = models.CharField(max_length=25, blank=True)
-    lastName = models.CharField(max_length=25, blank=False)
+    lastName = models.CharField(max_length=30, blank=False)
     suffix = models.CharField(max_length=5, blank=True)
     telephoneNum = models.CharField(max_length=10, blank=True)
     gender = models.CharField(max_length=10)

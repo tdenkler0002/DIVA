@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Http, Response, Request, RequestMethod, Headers} from '@angular/http';
-import 'rxjs/add/operator/toPromise';
+import 'rxjs/Rx';
 import {Observable} from 'rxjs/Observable';
 import {User} from '../user'
 
@@ -9,10 +9,10 @@ export class UserServiceService {
 
   constructor( private http: Http) { }
   userUrl = '/users/ ';
-  citizenshipDocument: any = "None";
-  biometricsDocument: any = "None";
+  citizenshipDocument: any;
+  biometricsDocument: any;
   docType: string;
-
+  currentUser: User;
   // Holds the documentation variables for manual append to User Model
   addUserDoc(userDoc, docType) {
     if(docType=="Citizenship") {
@@ -27,15 +27,36 @@ export class UserServiceService {
     // Manually adds to the User model for POST
     user.citizenshipDocument = this.citizenshipDocument;
     user.biometricsDocument = this.biometricsDocument;
+    this.currentUser = user;
+
+    // If user has not submitted documentation - reject.
+    if(!user.citizenshipDocument || !user.biometricsDocument) {
+      alert('Citizen Document and/or Biometrics is required')
+      return;
+    }
 
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('X-CSRFToken', this.getCookie('csrftoken'));
+
     return this.http.post(
       this.userUrl,
       JSON.stringify(user),
       {headers: headers}).toPromise()
-      .then(res => res.json())
+      .then(this.extractData)
+      .catch(this.catchError)
+    }
+
+    extractData(res: Response) {
+      res.json();
+    }
+
+    catchError(error: any) {
+      let errMsg = (error.message) ? error.message :
+      error.status ? `${error.status} - ${error.statusText}` : 'Server Error';
+      console.error(errMsg);
+      alert(errMsg);
+      return Observable.throw(errMsg);
     }
 
     getCookie(name: string) {
