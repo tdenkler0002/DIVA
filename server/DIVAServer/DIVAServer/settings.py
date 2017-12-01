@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'DIVAServer.wsgi.application'
 DATABASES = {
     'default': {
          'ENGINE': 'django.db.backends.mysql',
-+        'NAME': 'voterRegInfo',
-+	'USER': 'apoorva',
-+	'PASSWORD': 'Fulton2017!',
-+	'HOST': 'localhost',
-+	'PORT': '',
+         'NAME': 'voterRegInfo',
+         'USER': 'apoorva',
+         'PASSWORD': 'Fulton2017!',
+         'HOST': 'localhost',
+         'PORT': '',
     }
 }
 
