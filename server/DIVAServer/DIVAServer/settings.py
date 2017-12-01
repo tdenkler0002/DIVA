@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'DIVAServer.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': 'voterRegInfo',
+         'USER': 'apoorva',
+         'PASSWORD': 'Fulton2017!',
+         'HOST': 'localhost',
+         'PORT': '',
     }
 }
 
@@ -127,7 +131,6 @@ CORS_ORIGIN_WHITELIST = (
     '127.0.0.1:8000',
     'tpshdsbg2.dhcpeast.asu.edu',
     'tpshdsbg2.dhcpeast.asu.edu:8000'
-
 )
 
 # Static files (CSS, JavaScript, Images)

@@ -4,7 +4,7 @@ import uuid
 import hashlib
 
 class User(models.Model):
-    voter_id = models.TextField(primary_key=True, default='Not Generated')
+    voter_id = models.CharField(primary_key=True, default='Not Generated', max_length=255)
     firstName = models.CharField(max_length=25, blank=False)
     middleName = models.CharField(max_length=25, blank=True)
     lastName = models.CharField(max_length=30, blank=False)
