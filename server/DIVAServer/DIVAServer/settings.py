@@ -122,7 +122,12 @@ CORS_ORIGIN_WHITELIST = (
     'google.com',
     'localhost:8000',
     'localhost:4200',
-    '127.0.0.1:9000'
+    '127.0.0.1:9000',
+    '127.0.0.1',
+    '127.0.0.1:8000',
+    'tpshdsbg2.dhcpeast.asu.edu',
+    'tpshdsbg2.dhcpeast.asu.edu:8000'
+
 )
 
 # Static files (CSS, JavaScript, Images)
