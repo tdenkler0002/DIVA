@@ -10,7 +10,7 @@ import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 export class BiometricsComponent implements OnInit {
 
   constructor(public activeModal: NgbActiveModal) { }
-
+  base64String: any
   ngOnInit() {
   }
 

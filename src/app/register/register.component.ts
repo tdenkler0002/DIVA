@@ -21,6 +21,8 @@ export class RegisterComponent implements OnInit {
   ) {}
   user: User = new User();
   submitted = false;
+  base64String: any
+
 
   // Opens the biometrics modal
   open( ) {
