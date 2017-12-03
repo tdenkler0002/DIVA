@@ -47,7 +47,7 @@ testem.log
 /reports
 /src/translations/template.*
 /src/environments/.env.json
-/DIVAenv
+/server/DIVAServer/DIVAenv
 
 # E2E
 /e2e/*.js
@@ -56,4 +56,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-

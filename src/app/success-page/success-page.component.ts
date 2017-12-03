@@ -8,7 +8,7 @@ import { UserServiceService } from '../services/user-service.service';
 })
 export class SuccessPageComponent implements OnInit {
 
-  constructor(private userService: UserServiceService) { }
+  constructor(public userService: UserServiceService) { }
 
   ngOnInit() {
   }

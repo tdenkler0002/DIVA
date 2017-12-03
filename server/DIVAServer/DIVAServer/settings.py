@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = '!64etn6ck2^rtny^#aa9cd7&*i+ld2w=a3i2x^d0+2oc3b3fy0'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -56,7 +54,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'DIVAServer.urls'
 
-TEMPLATES = [
+TEMPLATES = [ 
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
@@ -80,12 +78,14 @@ WSGI_APPLICATION = 'DIVAServer.wsgi.application'
 
 DATABASES = {
     'default': {
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'voterRegInfo',
-         'USER': 'apoorva',
-         'PASSWORD': 'Fulton2017!',
-         'HOST': 'localhost',
-         'PORT': '',
+         # 'ENGINE': 'django.db.backends.mysql',
+         # 'NAME': 'voterRegInfo',
+         # 'USER': 'apoorva',
+         # 'PASSWORD': 'Fulton2017!',
+         # 'HOST': 'localhost',
+         # 'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
