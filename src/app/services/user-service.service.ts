@@ -13,6 +13,7 @@ export class UserServiceService {
   biometricsDocument: any;
   docType: string;
   currentUser: User;
+
   // Holds the documentation variables for manual append to User Model
   addUserDoc(userDoc, docType) {
     if(docType=="Citizenship") {
@@ -35,10 +36,12 @@ export class UserServiceService {
       return;
     }
 
+    // Add headers to the http call
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('X-CSRFToken', this.getCookie('csrftoken'));
 
+    // POST http call to server with appended Headers, USER to promise
     return this.http.post(
       this.userUrl,
       JSON.stringify(user),
@@ -47,10 +50,12 @@ export class UserServiceService {
       .catch(this.catchError)
     }
 
+    // Response body to JSON
     extractData(res: Response) {
       res.json();
     }
 
+    // Error Handling
     catchError(error: any) {
       let errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server Error';
@@ -59,6 +64,7 @@ export class UserServiceService {
       return Observable.throw(errMsg);
     }
 
+    // Get cookie for request
     getCookie(name: string) {
       let value = "; " + document.cookie;
       let parts = value.split("; " + name + "=");
