@@ -26,6 +26,7 @@ export class FileUploadComponent implements ControlValueAccessor {
        this.userService.addUserDoc(this.base64String, this.documentType);
     }
 
+    // Awaits change
     propagateChange = (_: any) => { };
     registerOnChange(fn) {
         this.propagateChange = fn;
