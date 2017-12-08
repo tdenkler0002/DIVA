@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() { }
 
+  // Login functionality
   login() {
     this.isLoading = true;
     this.authenticationService.login(this.loginForm.value)
